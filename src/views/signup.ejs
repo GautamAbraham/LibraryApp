@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="" />
+		<title><%= title %></title>
+		
+		<link rel="icon" type="image/png" href="/img/open-book.png" />
+		<link
+			rel="canonical"
+			href="https://getbootstrap.com/docs/5.0/examples/sign-in/"
+		/>
+
+		<!-- Bootstrap core CSS -->
+		<link href="/css/bootstrap.min.css" rel="stylesheet" />
+		<!-- Custom styles for this template -->
+		<link href="/css/signin.css" rel="stylesheet" />
+	</head>
+	<body class="text-center bg-dark">
+        <header class="navbar navbar-bright navbar-fixed-top" role="banner">
+			<div class="container">
+				<div class="navbar-header">
+					<a href="/" class="navbar-brand">Home</a>
+				</div>
+				<nav class="collapse navbar-collapse" role="navigation">
+					<ul class="nav navbar-nav">
+						<%for (i=0; i<nav.length; i++){%>
+						<li>
+							<a href="<%=nav[i].link%>"><%=nav[i].name%></a>
+						</li>
+						<%}%>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<main class="form-signin">
+			<form class="needs-validation" action="/login" novalidate>
+				<h3 class="text-light">Fill your details</h3>
+				<input
+					type="text"
+					class="form-control mt-4"
+					placeholder="First Name"
+					required
+					autofocus
+				/>
+				<input
+					type="text"
+					class="form-control"
+					placeholder="Last Name"
+					required
+				/>
+				<input
+					type="tel"
+					id="mob"
+					class="form-control"
+					placeholder="Mobile Number"
+					required
+				/>
+				<div id="mob-feedback" class="valid-feedback">
+					Please choose a valid mobile number.
+				</div>
+				<input
+					type="email"
+					id="inputEmail"
+					class="form-control"
+					placeholder="Email address"
+					
+					required
+				/>
+				<div id="email-feedback" class="valid-feedback">
+					Please choose a valid e-mail ID.
+				</div>
+				<input
+					type="password"
+					id="inputPassword"
+					class="form-control mb-0"
+					placeholder="Password"
+					name="password"
+					required
+				/>
+				<div id="pass-feedback" class="invalid-feedback">Weak</div>
+				<input
+					type="text"
+					id="confirmPassword"
+					class="form-control"
+					placeholder="Confirm Password"
+					required
+				/>
+				<div id="confirm-pass-feedback" class="valid-feedback">
+					Passwords Mismatch!
+				</div>
+				<button class="w-100 btn btn-lg btn-primary mt-4" type="submit">
+					Sign up
+				</button>
+			</form>
+		</main>
+		<script src="/js/bootstrap.min.js"></script>
+		<script src="/js/signup.js"></script>
+	</body>
+</html>

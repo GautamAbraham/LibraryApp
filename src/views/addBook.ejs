@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta charset="utf-8" />
+		<title><%=title%></title>
+		<meta name="generator" content="Bootply" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, maximum-scale=1"
+		/>
+		<link rel="icon" type="image/png" href="/img/open-book.png" />
+		<link href="/css/bootstrap.min.css" rel="stylesheet" />
+		<link
+			href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css"
+			rel="stylesheet"/>
+		<link href="/css/styles.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header class="navbar navbar-bright navbar-fixed-top" role="banner">
+			<div class="container">
+				<div class="navbar-header">
+					<a href="/" class="navbar-brand">Home</a>
+				</div>
+				<nav class="collapse navbar-collapse" role="navigation">
+					<ul class="nav navbar-nav">
+						<%for (i=0; i<nav.length; i++){%>
+						<li>
+							<a href="<%=nav[i].link%>"><%=nav[i].name%></a>
+						</li>
+						<%}%>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<div id="masthead">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-7">
+						<h1>
+							<%=title%>
+							<p class="lead"></p>
+						</h1>
+					</div>
+					<div class="col-md-5">
+						<div class="well well-lg">
+							<div class="row">
+								<div class="col-sm-12"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /cont -->
+
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="top-spacer"></div>
+					</div>
+				</div>
+			</div>
+			<!-- /cont -->
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel">
+						<div class="panel-body">
+							<!--/stories-->
+							<div class="row">
+								<br />
+								<div class="col-sm-10">
+									<main class="form-signin">
+                                        <form method="POST" class="needs-validation" action="/admin/addbook/add" novalidate>
+											<h3 class="text-light">Book Details</h3>
+											<input
+                                            type="text"
+                                            class="form-control mt-4"
+                                            placeholder="Book Title"
+											name="title"
+                                            required
+                                            autofocus
+											/>
+											<input
+                                            type="text"
+                                            class="form-control"
+                                            placeholder="Author"
+											name="author"
+                                            required
+											/>
+											<input
+                                            type="text"
+                                            class="form-control"
+                                            placeholder="Genre"
+											name="genre"
+                                            required
+											/>
+											<div class="mb-5">
+												<label for="img">Select image:</label>
+												<input type="file" id="img" name="img" accept="image/*" required> 
+											</div>
+											<br>
+											<button class="w-100 btn btn-lg btn-primary mt-5" type="submit">
+                                            Add Book
+											</button>
+                                        </form>
+									</main>
+								</div>								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer class="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
+						<ul class="list-inline">
+							<li><i class="icon-facebook icon-2x"></i></li>
+							<li><i class="icon-twitter icon-2x"></i></li>
+							<li><i class="icon-google-plus icon-2x"></i></li>
+							<li><i class="icon-pinterest icon-2x"></i></li>
+						</ul>
+					</div>
+					<div class="col-sm-6">
+						<p class="pull-right">
+							<em>Library Application</em>
+						</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- script references -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
+	</body>
+</html>
