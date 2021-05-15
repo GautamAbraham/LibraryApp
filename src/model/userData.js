@@ -13,6 +13,6 @@ const userSchema = new Schema({
 	password: String,
 });
 
-var userData = mongoose.model("userdata", bookSchema);
+var userData = mongoose.model("userdata", userSchema);
 
 module.exports = userData;

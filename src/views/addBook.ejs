@@ -15,123 +15,41 @@
 			href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css"
 			rel="stylesheet"/>
 		<link href="/css/styles.css" rel="stylesheet" />
-		<!-- Script from adithya -->
-		<style>
-			@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
-		* {
-			box-sizing: border-box;
-		}
-		/* body {
-			margin: 0;
-			padding: 0;
-			font-family: 'Raleway', sans-serif;
-		} */
-		.box {
-			display: flex;
-			background-color: white;
-			align-items: center;
-			justify-content: center;
-			background-color: white;
-			background-image: white;
-			height: 80vh;
-		}
-		.login-form {
-			min-width: 250px;
-			max-width: 400px;
-			border-radius: 24px;
-			padding: 15px;
-			background-color: white;
-			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-		}
-		.login-form h1 {
-			text-align: center;
-			font-size: 2.5rem;
-			margin-top: 35px;
-		}
-		.login-form input[type = "text"] {
-			margin-top: 30px;
-		}
-		.login-form input[type = "password"] {
-			margin-top: 10px;
-		}
-		input {
-		  outline: none;
-		 }
-		.links {
-			margin-top: 10px;
-			display: flex;
-			flex-wrap: wrap;
-			flex-direction: row;
-		}
-		.links > a:first-of-type {
-			margin-right: 5px;
-		}
-		.links > a {    
-			background-color: #E0E0E0;
-			border-radius: 24px;
-			font-weight: 400;
-			color: black;
-			line-height: 12px;
-			flex: 1;
-			text-align: center;
-			padding: 10px;
-			text-decoration: none;
-		  font-family: 'Raleway';
-			transition: 0.25s;
-		}
-		.links > a:hover {  
-			opacity: 0.6;
-		}
-		.login-form input[type = "submit"] {
-			background-color:  #E0E0E0;
-			background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
-			width: 100%;
-			color: white;
-			border: none;
-			margin-top: 35px;
-			cursor: pointer;
-			padding: 10px;
-			font-family: 'Raleway', sans-seriff;
-			font-size: 1.3rem;
-			font-weight: bold;
-			border-radius: 24px;
-			transition: 0.25s;
-		}
-		.login-form input[type = "submit"]:hover {
-			opacity: 0.8;
-		}
-		.login-form input[type = "text"]:focus, .login-form input[type = "password"]:focus {
-			border: 2px #21D4FD solid;
-		 }
-		.login-form input[type = "text"], .login-form input[type = "password"] {
-			width: 100%;
-			border: none;
-			border-radius: 24px;
-			font-size: 1rem;
-			font-family: 'Raleway', sans-seriff;
-			background-color: gainsboro;
-			padding: 15px;
-		} 
-		  </style>
+		<link rel="stylesheet" href="/css/addBook.css">
 
 	</head>
 	<body>
 		<header class="navbar navbar-bright navbar-fixed-top" role="banner">
 			<div class="container">
-				<div class="navbar-header">
-					<a href="/" class="navbar-brand">Home</a>
-				</div>
-				<nav class="collapse navbar-collapse" role="navigation">
-					<ul class="nav navbar-nav">
-						<%for (i=0; i<nav.length; i++){%>
-						<li>
-							<a href="<%=nav[i].link%>"><%=nav[i].name%></a>
-						</li>
-						<%}%>
-					</ul>
-				</nav>
+			<div class="navbar-header">
+			<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				</button>
+				<a href="/" class="navbar-brand">Home</a>
 			</div>
-		</header>
+			  <nav class="collapse navbar-collapse" role="navigation">
+				<ul class="nav navbar-nav">
+					<% for(i=0;i<nav.length;i++){%>
+				  <li>
+					<a href="<%=nav[i].link%>"><%=nav[i].name%></a>
+				  </li>
+				  <%}%>
+				</ul>
+				<ul class="nav navbar-right navbar-nav">
+				  <li class="dropdown">
+					<ul class="dropdown-menu" style="padding:12px;">
+					  <form class="form-inline">
+						<button type="submit" class="btn btn-default pull-right"><i class="glyphicon glyphicon-search"></i></button><input type="text" class="form-control pull-left" placeholder="Search">
+					  </form>
+					</ul>
+				  </li>
+				</ul>
+			  </nav>
+			</div>
+		  </header>
 
 		<div id="masthead">
 			<div class="container">
@@ -153,29 +71,21 @@
 			</div>
 			<!-- /cont -->
 
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="top-spacer"></div>
-					</div>
-				</div>
-			</div>
 			<!-- /cont -->
 		</div>
-
+		
 		<!-- Form starts here -->
 		<div class="box" style="padding: -500px;">
-			<form class="login-form">
+			<form method="POST" class="login-form" action="/admin/addbook/add">
 				
-				<input type="text" name="username" placeholder="Enter Book name" required>
-				<input type="text" name="username" placeholder="Enter Author name" required>
-				<input type="text" name="username" placeholder="Enter Genre name" required>
+				<input type="text" name="title" placeholder="Enter Book name" required>
+				<input type="text" name="author" placeholder="Enter Author name" required>
+				<input type="text" name="genre" placeholder="Enter Genre name" required>
+				<label style="margin-top:20px;">Brief Description of Book</label><br>
+				<textarea id="bookDesc" name="desc" palceholder="Brief Description of Book" style="margin-top: 15px;width: 350px;height: 100px;" ></textarea>
 				<label style="margin-top:20px;">Upload Book Image</label>
-				<input class="text" type="file" id="bookFile" name="file" required="" >
-					   
-				<input type="submit" name="Login" value="ADD BOOK">
-				
-				</button>
+				<input type="file" id="img" name="img" accept="image/*" required="" >
+				<input type="submit" name="Login" value="Add Book">
 			</form>
 			
 		</div>

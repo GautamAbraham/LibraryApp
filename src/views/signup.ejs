@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%=title%></title>
     <link href="css/logincss.css" rel="stylesheet">
+	<link rel="icon" type="image/png" href="/img/open-book.png" />
     <!-- <link href="bootstrap.min.css" rel="stylesheet"> -->
     
     
@@ -35,48 +36,42 @@
     <link rel="stylesheet" type="text/css" href="/css/util.css">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
   <!--===============================================================================================-->
-
-
-
-
-
  </head>
 <body>
 <!-- Navbar starts here -->
-  <header class="navbar navbar-bright navbar-fixed-top" role="banner">
+<header class="navbar navbar-bright navbar-fixed-top" role="banner">
     <div class="container">
-      <div class="navbar-header">
-        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
+    <div class="navbar-header">
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
         </button>
         <a href="/" class="navbar-brand">Home</a>
-      </div>
-      <nav class="collapse navbar-collapse" role="navigation">
+    </div>
+    <nav class="collapse navbar-collapse" role="navigation">
         <ul class="nav navbar-nav">
-            <% for(i=0;i<nav.length;i++){%>
-          <li>
+        <% for(i=0;i<nav.length;i++){%>
+        <li>
             <a href="<%=nav[i].link%>"><%=nav[i].name%></a>
-          </li>
-          <%}%>
+        </li>
+        <%}%>
         </ul>
         <ul class="nav navbar-right navbar-nav">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
+        <li class="dropdown">
             <ul class="dropdown-menu" style="padding:12px;">
-              <form class="form-inline">
+            <form class="form-inline">
                 <button type="submit" class="btn btn-default pull-right"><i class="glyphicon glyphicon-search"></i></button><input type="text" class="form-control pull-left" placeholder="Search">
-              </form>
+            </form>
             </ul>
-          </li>
+        </li>
         </ul>
-      </nav>
+    </nav>
     </div>
-  </header>
-  
-  <div id="masthead">  
+</header>
+
+<div id="masthead">  
     <div class="container">
       <div class="row">
         <div class="col-md-7">
@@ -90,31 +85,28 @@
               <div class="col-sm-12">
                 
         
-              </div>
             </div>
-          </div>
+            </div>
         </div>
-      </div> 
+        </div>
+    </div> 
     </div><!-- /cont -->
     
     <div class="container">
-      <div class="row">
+    <div class="row">
         <div class="col-md-12">
-          <!-- <div class="top-spacer"> </div> -->
+        <div class="top-spacer"> </div>
         </div>
-      </div> 
+    </div> 
     </div>    <!--/cont-->
     
-  </div>
-  
-  
-  <div class="container ">
+</div>
+<div class="container ">
     <div class="row ">
-      
-      <div class="col-md-12 "> 
+    <div class="col-md-12 "> 
         
         <div class="panel imgdivsignup">
-          <div class="panel-body">
+        <div class="panel-body">
             
             
             
@@ -131,10 +123,10 @@
 			</span>
 		</div>
 
-		<form action="#" class="contact100-form validate-form" onsubmit= "return fvali()">
+		<form method="POST" action="/login/register" class="contact100-form validate-form" onsubmit= "return fvali()">
 			<div class="wrap-input100 validate-input" >
 				<span class="label-input100">First Name:</span>
-				<input class="input100" type="text" name="name" id="firstname" placeholder="Enter first name" onkeyup="return fnamevali()">
+				<input class="input100" type="text" name="fname" id="firstname" placeholder="Enter first name" onkeyup="return fnamevali()">
 				<span class="focus-input100"></span>
 				
 			</div>
@@ -144,7 +136,7 @@
 
 			<div class="wrap-input100 validate-input" >
 				<span class="label-input100">Last Name:</span>
-				<input class="input100" type="text" name="name" id="lastname" placeholder="Enter last name" onkeyup="return lnamevali()">
+				<input class="input100" type="text" name="lname" id="lastname" placeholder="Enter last name" onkeyup="return lnamevali()">
 				<span class="focus-input100"></span>
 			</div>
 			<div id="l1">
@@ -152,13 +144,13 @@
 
 			<div class="wrap-input100 validate-input" >
 				<span class="label-input100">Email:</span>
-				<input class="input100" type="email" name="name" placeholder="Enter Email address" required>
+				<input class="input100" type="email" name="email" placeholder="Enter Email address" required>
 				<span class="focus-input100"></span>
 			</div>
 
 			<div class="wrap-input100 validate-input" >
 				<span class="label-input100">Phone No:</span>
-				<input class="input100" type="text" id="phone" placeholder="Enter contact number" onkeyup="return phonenumber()">
+				<input class="input100" type="text" id="phone" name="mob" placeholder="Enter contact number" onkeyup="return phonenumber()">
 				<span class="focus-input100"></span>
 			</div>
 			<div id="ph">
@@ -166,74 +158,41 @@
 
 			<div class="wrap-input100 validate-input" >
 				<span class="label-input100">Password:</span>
-				<input class="input100" type="password" name="name" placeholder="Enter password" id="inputPassword4" onkeyup="return passvali()">
+				<input class="input100" type="password" name="password" placeholder="Enter password" id="inputPassword4" onkeyup="return passvali()">
 				<span class="focus-input100"></span>
 			</div>
 			<div id="err"></div>
 
 			<div class="wrap-input100 validate-input" >
 				<span class="label-input100">Re-Type Password:</span>
-				<input class="input100" type="password" name="name" placeholder="Enter password again" id="inputPassword5" onkeyup="return passcheck()">
+				<input class="input100" type="password" name="confpass" placeholder="Enter password again" id="inputPassword5" onkeyup="return passcheck()">
 				<span class="focus-input100"></span>
 				
 			</div>
 			<div id="err2"></div>
 			<div id="tstbx"></div>
-
-			
-
-			<div class="container-contact100-form-btn">
-				<button class="contact100-form-btn">
-					<span>
-						Signup
-						<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
-					</span>
-				</button>
-			</div>
-		</form>
-	</div>
-
-
-
-<!-- Form ends here -->
-            <!-- <hr> -->
-            <!--/stories-->
-            
-            
-            <!-- <a href="/" class="btn btn-primary pull-right btnNext">More <i class="glyphicon glyphicon-chevron-right"></i></a> -->
-          
-            
-          </div>
-        </div>
-                                                                                         
-                                                    
-                                                        
-       </div><!--/col-12-->
+				<div class="container-contact100-form-btn">
+					<button class="contact100-form-btn">
+						<span>
+							Signup
+							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						</span>
+					</button>
+				</div>
+			</form>
+		</div>
     </div>
-  </div>
-  </div>
-                                                  
-                                                                                  
-  <hr>
-  
-  <div class="container" id="footer">
-    <div class="row">
-      <div class="col col-sm-12">
-        
-        <h1>Follow Us</h1>
-        <div class="btn-group">
-         <a class="btn btn-twitter btn-lg" href="#"><i class="icon-twitter icon-large"></i> Twitter</a>
-       <a class="btn btn-facebook btn-lg" href="#"><i class="icon-facebook icon-large"></i> Facebook</a>
-       <a class="btn btn-google-plus btn-lg" href="#"><i class="icon-google-plus icon-large"></i> Google+</a>
-        </div>
-        
-      </div>
-    </div>
-  </div>
-  
-  <hr>
-  
-  <hr>
+</div>                                                                                     
+</div>
+</div>
+</div>
+</div>
+
+<hr>
+
+<hr>
+
+<hr>
   
   <footer>
     <div class="container">
@@ -248,7 +207,9 @@
           
         </div>
         <div class="col-sm-6">
-            <p class="pull-right">Built with <i class="icon-heart-empty"></i> at <a href="http://www.bootply.com">Bootply</a></p>      
+          <p class="pull-right">
+            <em>Library Application</em>
+          </p>  
         </div>
       </div>
     </div>
@@ -256,8 +217,8 @@
 
 <!-- footer ends here -->
 <!-- script references -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/signupform.js"></script>
-</body>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/signupform.js"></script>
+	</body>
 </html>

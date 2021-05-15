@@ -15,9 +15,11 @@ function router(nav) {
 
 	booksRouter.get("/:id", function (req, res) {
 		const id = req.params.id;
-		res.render("book", {
-			nav,
-			book: books[id],
+		bookData.findOne({ _id: id }).then(function (book) {
+			res.render("book", {
+				nav,
+				book,
+			});
 		});
 	});
 

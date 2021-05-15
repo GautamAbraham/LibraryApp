@@ -1,6 +1,7 @@
 const express = require("express");
 const adminRouter = express.Router();
 const bookData = require("../model/bookData");
+const authorData = require("../model/authorData");
 
 function router(nav) {
 	adminRouter.get("/addbook", function (req, res) {
@@ -14,6 +15,7 @@ function router(nav) {
 			title: req.body.title,
 			author: req.body.author,
 			genre: req.body.genre,
+			desc: req.body.desc,
 			img: req.body.img,
 		};
 
@@ -31,6 +33,8 @@ function router(nav) {
 	adminRouter.post("/addauthor/add", function (req, res) {
 		var item = {
 			author: req.body.author,
+			famous_work: req.body.famous_work,
+			desc: req.body.desc,
 			img: req.body.img,
 		};
 

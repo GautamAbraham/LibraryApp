@@ -7,6 +7,8 @@ mongoose.connect(
 const Schema = mongoose.Schema;
 const authorSchema = new Schema({
 	author: String,
+	famous_work: String,
+	desc: String,
 	img: String,
 });
 
