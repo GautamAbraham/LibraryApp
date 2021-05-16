@@ -50,7 +50,18 @@ function router(nav) {
 		book.save();//saving to the database
 		res.redirect("/books");
 	});
+        
+	adminRouter.get('/:id',function(req,res){
+        const id = req.params.id;
+        
+        bookData.deleteOne({_id:id})
+        .then(function(books){
+            res.redirect('/books');
 
+        });
+        
+    
+    });
 	adminRouter.get("/addauthor", function (req, res) {
 		res.render("addAuthor", {
 			nav,
