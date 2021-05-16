@@ -74,14 +74,14 @@
 
 		<!-- form starts here -->
 		<div class="box" style="padding: -500px;">
-			<form method="POST" class="login-form" action="/admin/addauthor/add">
+			<form method="POST" class="login-form" action="/admin/addauthor/add" enctype="multipart/form-data">
 				
 				<input type="text" name="author" placeholder="Enter Author name" required>
 				<input type="text" name="famous_work" placeholder="Famous works" required>	
 				<label style="margin-top:20px;">Brief Description of Author</label><br>
 				<textarea id="authDesc" name="desc" palceholder="Brief Description of Author" style="margin-top: 15px;width: 350px;height: 100px;" ></textarea>
 				<label style="margin-top:20px;">Upload Author's Image</label>
-				<input type="file" id="img" name="img" accept="image/*" required=''>
+				<input type="file" id="img" name="imge" accept="image/*" required=''>
 				<input type="submit" name="Login" value="Add Author">				
 				</button>
 			</form>
