@@ -4,6 +4,8 @@ mongoose.connect(
 	{ useNewUrlParser: true, useUnifiedTopology: true }
 );
 
+const authorimagepath='images/authorimages'
+
 const Schema = mongoose.Schema;
 const authorSchema = new Schema({
 	author: String,
@@ -15,3 +17,5 @@ const authorSchema = new Schema({
 var authorData = mongoose.model("authordata", authorSchema);
 
 module.exports = authorData;
+
+module.exports.authorimagepath=authorimagepath;
