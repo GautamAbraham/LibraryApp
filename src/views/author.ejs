@@ -90,7 +90,7 @@
 								<br />
 								<div class="col-md-2 col-sm-3 text-center">
 										<img
-											alt="%=author.name%>"
+											alt="<%=author.author%>"
 											src="/images/authorimages/<%=author.img%>"
 											style="width: 100px; height: 100px"
 											class="img-circle"
@@ -101,7 +101,15 @@
 									<div class="row">
 										<div class="col-xs-9">
 										<p><%= author.desc %> </p>
-										</div>
+									</div>
+									<div class="col-xs-3">
+										<form action="/update/<%=author._id%>">
+											<button class="btn btn-success btn-lg" id="update" style="margin-left: 10%;">Update</button>
+										</form>
+										<br>
+										<form action="/authors/delete/<%=author.id%>"onclick="return confirmAction();">
+										<button id="delete" class="btn btn-danger btn-lg" id="delete" style="margin-left: 10%;">Delete</button></form>
+									</div>
 									</div>
 									<hr>
 								</div>

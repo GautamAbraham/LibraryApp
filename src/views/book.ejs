@@ -89,7 +89,7 @@
 								<br />
 								<div class="col-md-2 col-sm-3 text-center">
 										<img
-											alt="%=books[i].name%>"
+											alt="<%=book.title%>"
 											src="/images/bookimages/<%=book.img%>"
 											style="width: 100px; height: 100px"
 											class="img-circle"
@@ -106,6 +106,14 @@
 											</h4>
 											<p><%= book.desc %> </p>
 										</div>
+										<div class="col-xs-3">
+											<form action="/books/update/<%=book._id%>">
+												<button class="btn btn-success btn-lg" id="update" style="margin-left: 10%;">Update</button>
+											</form>
+											<br>
+											<form action="/books/delete/<%=book._id%>"onclick="return confirmAction();">
+											<button id="delete" class="btn btn-danger btn-lg" id="delete" style="margin-left: 10%;">Delete</button></form>
+										</div>
 									</div>
 									<hr>
 								</div>
@@ -117,16 +125,6 @@
 		</div>
 
 		<hr />
-		
-		<form action="/update/<%=book._id%>">
-            <button class="btn btn-success btn-lg" id="update" style="margin-left: 10%;">Update
-
-            </button>
-          </form>
-          <br>
-          <form action="/admin/<%=book.id%>"onclick="return confirmAction();">
-          <button id="delete" class="btn btn-danger btn-lg" id="delete" style="margin-left: 10%;">Delete</button></form>
-          
 
 		<footer class="footer">
 			<div class="container">

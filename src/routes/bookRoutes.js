@@ -23,6 +23,13 @@ function router(nav) {
 		});
 	});
 
+	booksRouter.get("/delete/:id", function (req, res) {
+		const id = req.params.id;
+		bookData.deleteOne({ _id: id }).then(function (books) {
+			res.redirect("/books");
+		});
+	});
+
 	return booksRouter;
 }
 

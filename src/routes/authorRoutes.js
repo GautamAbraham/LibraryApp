@@ -23,6 +23,13 @@ function router(nav) {
 		});
 	});
 
+	authorsRouter.get("/delete/:id", function (req, res) {
+		const id = req.params.id;
+		authorData.deleteOne({ _id: id }).then(function () {
+			res.redirect("/authors");
+		});
+	});
+
 	return authorsRouter;
 }
 
