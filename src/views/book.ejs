@@ -107,12 +107,13 @@
 											<p><%= book.desc %> </p>
 										</div>
 										<div class="col-xs-3">
-											<form action="/books/update/<%=book._id%>">
+											<form action="/books/edit/<%=book._id%>">
 												<button class="btn btn-success btn-lg" id="update" style="margin-left: 10%;">Update</button>
 											</form>
 											<br>
-											<form action="/books/delete/<%=book._id%>"onclick="return confirmAction();">
-											<button id="delete" class="btn btn-danger btn-lg" id="delete" style="margin-left: 10%;">Delete</button></form>
+											<form action="/books/delete/<%=book._id%>">
+												<button id="delete" class="btn btn-danger btn-lg" id="delete" style="margin-left: 10%;">Delete</button>
+											</form>
 										</div>
 									</div>
 									<hr>

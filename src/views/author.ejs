@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 		<meta charset="utf-8" />
-		<title><%=author.name%></title>
+		<title><%=author.author%></title>
 		<meta name="generator" content="Bootply" />
 		<meta
 			name="viewport"
@@ -103,12 +103,13 @@
 										<p><%= author.desc %> </p>
 									</div>
 									<div class="col-xs-3">
-										<form action="/update/<%=author._id%>">
+										<form action="/authors/edit/<%=author._id%>">
 											<button class="btn btn-success btn-lg" id="update" style="margin-left: 10%;">Update</button>
 										</form>
 										<br>
-										<form action="/authors/delete/<%=author.id%>"onclick="return confirmAction();">
-										<button id="delete" class="btn btn-danger btn-lg" id="delete" style="margin-left: 10%;">Delete</button></form>
+										<form action="/authors/delete/<%=author.id%>">
+											<button id="delete" class="btn btn-danger btn-lg" id="delete" style="margin-left: 10%;">Delete</button>
+										</form>
 									</div>
 									</div>
 									<hr>

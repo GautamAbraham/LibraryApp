@@ -30,26 +30,26 @@
 				</button>
 				<a href="/" class="navbar-brand">Home</a>
 			</div>
-			  <nav class="collapse navbar-collapse" role="navigation">
+			<nav class="collapse navbar-collapse" role="navigation">
 				<ul class="nav navbar-nav">
 					<% for(i=0;i<nav.length;i++){%>
-				  <li>
+				<li>
 					<a href="<%=nav[i].link%>"><%=nav[i].name%></a>
-				  </li>
-				  <%}%>
+				</li>
+				<%}%>
 				</ul>
 				<ul class="nav navbar-right navbar-nav">
-				  <li class="dropdown">
+				<li class="dropdown">
 					<ul class="dropdown-menu" style="padding:12px;">
-					  <form class="form-inline">
+					<form class="form-inline">
 						<button type="submit" class="btn btn-default pull-right"><i class="glyphicon glyphicon-search"></i></button><input type="text" class="form-control pull-left" placeholder="Search">
-					  </form>
+					</form>
 					</ul>
-				  </li>
+				</li>
 				</ul>
-			  </nav>
+			</nav>
 			</div>
-		  </header>
+		</header>
 
 		<div id="masthead">
 			<div class="container">
@@ -76,16 +76,17 @@
 		
 		<!-- Form starts here -->
 		<div class="box" style="padding: -500px;">
-			<form method="POST" class="login-form" action="/admin/addbook/add" enctype="multipart/form-data">
+				<form method="POST" class="login-form" action="<% if (book.author) {%>/books/update<% } else { %>/admin/addbook/add<%} %>" enctype="multipart/form-data">
 				
-				<input type="text" name="title" placeholder="Enter Book name" required>
-				<input type="text" name="author" placeholder="Enter Author name" required>
-				<input type="text" name="genre" placeholder="Enter Genre name" required>
+                <input type="hidden" name="id" value="<%=book._id%>">
+				<input type="text" name="title" value="<%= book.title %>" placeholder="Enter Book name" required>
+				<input type="text" name="author" value="<%= book.author %>" placeholder="Enter Author name" required>
+				<input type="text" name="genre" value="<%= book.genre %>" placeholder="Enter Genre name" required>
 				<label style="margin-top:20px;">Brief Description of Book</label><br>
-				<textarea id="bookDesc" name="desc" palceholder="Brief Description of Book" style="margin-top: 15px;width: 350px;height: 100px;" ></textarea>
+				<textarea id="bookDesc" name="desc" palceholder="Brief Description of Book" style="margin-top: 15px;width: 350px;height: 100px;" ><%= book.desc %></textarea>
 				<label style="margin-top:20px;">Upload Book Image</label>
 				<input type="file" id="img" name="img"  required="">
-				<input type="submit" name="Login" value="Add Book">
+				<input type="submit" name="Login" value="Update">
 			</form>
 			
 		</div>

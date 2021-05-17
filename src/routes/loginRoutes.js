@@ -46,10 +46,9 @@ function router(nav) {
 		var user = userData(item);
 		userData.findOne({ email: item.email }, function (err, found) {
 			if (err || found) {
-				// "if error or no user"
-				console.log("invalid Login cred");
+				// "if error or user already exist"
+				console.log("duplicate email");
 				res.send("User already registered with given email ID");
-
 				// res.redirect("/login");
 				// res.send("User not found.");
 			} else {

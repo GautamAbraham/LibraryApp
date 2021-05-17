@@ -74,12 +74,13 @@
 
 		<!-- form starts here -->
 		<div class="box" style="padding: -500px;">
-			<form method="POST" class="login-form" action="/admin/addauthor/add" enctype="multipart/form-data">
+			<form method="POST" class="login-form" action="<% if (author.author) {%>/authors/update<% } else { %>/admin/addauthor/add<% } %>" enctype="multipart/form-data">
 				
-				<input type="text" name="author" placeholder="Enter Author name" required>
-				<input type="text" name="famous_work" placeholder="Famous works" required>	
+                <input type="hidden" name="id" value="<%=author._id%>">
+				<input type="text" name="author" value="<%= author.author %>" placeholder="Enter Author name" required>
+				<input type="text" name="famous_work" value="<%= author.famous_work %>" placeholder="Famous works" required>	
 				<label style="margin-top:20px;">Brief Description of Author</label><br>
-				<textarea id="authDesc" name="desc" palceholder="Brief Description of Author" style="margin-top: 15px;width: 350px;height: 100px;" ></textarea>
+				<textarea id="authDesc" name="desc" palceholder="Brief Description of Author" style="margin-top: 15px;width: 350px;height: 100px;" ><%= author.desc %></textarea>
 				<label style="margin-top:20px;">Upload Author's Image</label>
 				<input type="file" id="img" name="imge" accept="image/*" required=''>
 				<input type="submit" name="Login" value="Add Author">				

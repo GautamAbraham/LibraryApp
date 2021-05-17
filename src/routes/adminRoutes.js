@@ -32,6 +32,13 @@ function router(nav) {
 		res.render("addBook", {
 			nav,
 			title: "Add Book",
+			book: {
+				_id: "",
+				title: "",
+				author: "",
+				genre: "",
+				desc: "",
+			},
 		});
 	});
 	adminRouter.post("/addbook/add", upload.single("img"), function (req, res) {
@@ -54,6 +61,12 @@ function router(nav) {
 		res.render("addAuthor", {
 			nav,
 			title: "Add Author",
+			author: {
+				_id: "",
+				author: "",
+				famous_work: "",
+				desc: "",
+			},
 		});
 	});
 	adminRouter.post(
