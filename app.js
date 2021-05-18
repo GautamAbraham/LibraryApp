@@ -2,6 +2,10 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 9999;
 
+// var session=require('express-session');
+// var flush=require('connect-flash');
+
+
 var nav = [
 	{ link: "/books", name: "Books" },
 	{ link: "/authors", name: "Authors" },
@@ -24,10 +28,23 @@ app.use("/authors", authorsRouter);
 app.use("/login", loginRouter);
 app.use("/admin", adminRouter);
 
+
+// app.use(session({
+// 	secret:'secter',
+// 	cookie:{maxAge:60000},
+// 	resave:false,
+// 	saveUninitialized:false,
+
+// }));
+// app.use(flush());
+
+
+
 app.get("/", function (req, res) {
 	res.render("index", {
 		nav,
 		title: "Library",
+		// message: req.flash('message')
 	});
 });
 

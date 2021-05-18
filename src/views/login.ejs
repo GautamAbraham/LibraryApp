@@ -112,7 +112,13 @@
       
       <div class="panel imgdivlogin">
         <div class="panel-body">
-          
+
+
+          <% if(message.length>0) { %>
+          <div class="alert alert-danger">
+            <strong>Sorry . .</strong><%= message %>
+          </div>
+          <% } %>
           
           
           <!--/stories-->
