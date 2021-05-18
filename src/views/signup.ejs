@@ -108,6 +108,12 @@
         <div class="panel imgdivsignup">
         <div class="panel-body">
             
+          <!-- for the alertbox used while people have the same email at signup -->
+          <% if(liss.length>0) { %>
+            <div class="alert alert-danger">
+              <strong>Sorry . .</strong><%= liss %>
+            </div>
+            <% } %>
             
             
             <!--/stories-->

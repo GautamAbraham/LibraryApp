@@ -54,6 +54,7 @@ function router(nav) {
 		res.render("signup", {
 			nav,
 			title: "SignUp",
+			liss: req.flash('liss')
 		});
 	});
 	loginRouter.post("/register", function (req, res) {
@@ -70,8 +71,9 @@ function router(nav) {
 			if (err || found) {
 				// "if error or user already exist"
 				console.log("duplicate email");
-				res.send("User already registered with given email ID");
-				// res.redirect("/login");
+				// res.send("User already registered with given email ID");
+				req.flash('liss', 'Email address already taken, please try again with another one');
+				res.redirect("/login/signup");
 				// res.send("User not found.");
 			} else {
 				console.log("purrfect");
