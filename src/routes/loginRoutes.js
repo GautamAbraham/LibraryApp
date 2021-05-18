@@ -2,13 +2,34 @@ const express = require("express");
 const loginRouter = express.Router();
 const userData = require("../model/userData");
 
+var session=require('express-session');
+var flush=require('connect-flash');
+
+
+
+
+
 function router(nav) {
+
+	loginRouter.use(session({
+		secret:'secter',
+		cookie:{maxAge:60000},
+		resave:false,
+		saveUninitialized:false,
+	
+	}));
+	loginRouter.use(flush());
+
+
 	loginRouter.get("/", function (req, res) {
 		res.render("login", {
 			nav,
 			title: "Login",
+			message: req.flash('message')
 		});
 	});
+
+	
 
 	loginRouter.post("/signin", function (req, res) {
 		userData.findOne(
@@ -17,6 +38,7 @@ function router(nav) {
 				if (err || !user) {
 					// "if error or no user"
 					console.log("invalid Login cred");
+					req.flash('message', 'Invalid Login credentials, Check email and password again');
 					res.redirect("/login");
 					// res.send("User not found.");
 				} else {
